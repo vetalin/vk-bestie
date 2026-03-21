@@ -217,3 +217,70 @@ function saveProgressToStorage(p: PlayerProgress): void {
 - Use `ctx.save()` / `ctx.restore()` around scaled drawing
 - `touchAction: 'none'` CSS on canvas to prevent scroll conflict
 - Handle both `onClick` and `onTouchEnd` for cross-platform support
+
+## Quiz App Pattern (extracted from vk-mem-tip)
+
+### Score-based Result Store (Zustand)
+```typescript
+// src/store/quizStore.ts
+// Pattern: answer → score map → highest score wins
+type MemeScores = Partial<Record<string, number>>;
+interface Answer { text: string; scores: MemeScores; }
+interface Question { id: number; text: string; answers: Answer[]; }
+
+// selectAnswer adds scores, goBack subtracts them
+// isFinished checks currentQuestion >= QUESTIONS.length
+// getResult returns type with highest total score
+```
+
+### VKWebAppShowBannerAd (correct enum usage)
+```typescript
+import bridge, { BannerAdLocation } from '@vkontakte/vk-bridge';
+bridge.send('VKWebAppShowBannerAd', { banner_location: BannerAdLocation.BOTTOM });
+```
+
+### ActionSheet with typed onClose
+```typescript
+import type { ActionSheetOnCloseOptions } from '@vkontakte/vkui';
+<ActionSheet
+  onClose={(_options: ActionSheetOnCloseOptions) => setOpen(false)}
+  toggleRef={buttonRef}
+>
+  <ActionSheetItem onClick={handler}>Label</ActionSheetItem>
+  <ActionSheetItem mode="cancel" onClick={() => setOpen(false)}>Отмена</ActionSheetItem>
+</ActionSheet>
+```
+
+### Simple Panel Navigation (no Epic/Tabbar needed for linear flows)
+```typescript
+type PanelId = 'home' | 'quiz' | 'loading' | 'result';
+const [activePanel, setActivePanel] = useState<PanelId>('home');
+const [history, setHistory] = useState<PanelId[]>(['home']);
+
+// Navigate: setHistory(prev => [...prev, panel]); setActivePanel(panel);
+// GoBack: setHistory(prev => { const n = prev.slice(0,-1); setActivePanel(n[n.length-1]); return n; })
+// View: <View activePanel={activePanel} history={history} onSwipeBack={goBack}>
+
+// Special: Loading panel — filter out from history on done:
+// setHistory(prev => ([...prev.filter(p => p !== 'loading'), 'result'] as PanelId[]))
+```
+
+### VKWebAppShowWallPostBox share
+```typescript
+await bridge.send('VKWebAppShowWallPostBox', {
+  message: `Мой результат: ${result.name}\nhttps://vk.com/app${APP_ID}`,
+});
+```
+
+### Gradient card pattern (CSS-only, no canvas)
+```tsx
+<div style={{
+  borderRadius: 24,
+  background: `linear-gradient(135deg, ${color}22, ${color}44)`,
+  border: `2px solid ${color}55`,
+  padding: '32px 24px',
+  textAlign: 'center',
+}}>
+  {/* emoji + name + description */}
+</div>
+```
