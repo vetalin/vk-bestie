@@ -171,3 +171,49 @@ export async function GET(
   const { code } = await params; // Must await params in Next.js 14+
 }
 ```
+
+## Reusable Bridge Patterns (extracted from vk-bolt-sort-puzzle)
+
+### VK Bridge Utilities (src/bridge/vkBridge.ts)
+- `initVKApp()` - VKWebAppInit wrapper
+- `setSwipeSettings(enabled)` - swipe back settings
+- `openLink(url)` - open external link via VKWebAppShare or window.open fallback
+- `hapticError()` / `hapticSuccess()` - taptic notifications
+
+### Ads Utilities (src/bridge/ads.ts)
+- `checkAds(type)` - check ad availability ('reward' | 'interstitial')
+- `showInterstitial()` - show interstitial ad
+- `showRewarded()` - show rewarded ad, returns boolean (user watched)
+- Uses `EAdsFormats` enum from `@vkontakte/vk-bridge` — always import enum, don't pass strings directly
+
+### VKUI v7 API Notes
+- `ConfigProvider` uses `colorScheme` prop (not `appearance`): `<ConfigProvider platform="ios" colorScheme="dark">`
+- `ModalCard` uses `open` prop (not controlled via ModalRoot): `<ModalCard open={isOpen} title="..." description="...">`
+- `Alert` is a popout — conditionally render it: `{show && <Alert ... />}` — no `open` prop
+- `ModalCardBase` props: `title`, `description`, `actions` (not `header`/`subheader`)
+- Icons: `Icon24ArrowUturnLeftOutline` (not `Icon24ArrowUturnLeft`), `Icon24ExternalLinkOutline` (not `Icon16ExternalLinkOutline`)
+- `AlertActionInterface.action` receives optional args object
+
+### Zustand Store Pattern with localStorage
+```typescript
+const STORAGE_KEY = 'app_progress_v1';
+
+function loadProgress(): PlayerProgress {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as PlayerProgress;
+  } catch { /* ignore */ }
+  return createDefaultProgress();
+}
+
+function saveProgressToStorage(p: PlayerProgress): void {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch { /* ignore */ }
+}
+```
+
+### Canvas Game Pattern
+- Use `canvas.getBoundingClientRect()` for touch/click coordinate mapping
+- Apply `devicePixelRatio` scaling: `canvas.width = rect.width * dpr; ctx.scale(dpr, dpr);`
+- Use `ctx.save()` / `ctx.restore()` around scaled drawing
+- `touchAction: 'none'` CSS on canvas to prevent scroll conflict
+- Handle both `onClick` and `onTouchEnd` for cross-platform support
