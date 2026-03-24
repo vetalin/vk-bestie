@@ -17,8 +17,9 @@ import {
 } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import { Question, getQuestions } from './data/questions';
-import { UserInfo } from './types';
+import { getQuestions } from './data/questions';
+import type { Question } from './types';
+import type { UserInfo } from './types';
 
 type Screen = 'splash' | 'welcome' | 'quiz' | 'result' | 'leaderboard' | 'challenge';
 
@@ -173,7 +174,7 @@ export default function App() {
   return (
     <ConfigProvider colorScheme={scheme}>
       <AppRoot>
-        <SplitLayout popout={loading ? <ScreenSpinner size="large" /> : undefined}>
+        <SplitLayout popout={loading ? <ScreenSpinner /> : undefined}>
           <SplitCol>
             <View activePanel={screen}>
 

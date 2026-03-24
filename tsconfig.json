@@ -21,5 +21,6 @@
     }
   },
   "include": ["src"],
+  "exclude": ["src/panels.bak", "src/hooks.bak", "src/screens.bak"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
