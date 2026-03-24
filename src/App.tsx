@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import { View, ScreenSpinner, ModalCard, ModalRoot, Panel, PanelHeader, Group, Div, Button, Text, Title, Avatar, Progress, CardGrid, Card } from '@vkontakte/vkui';
-import '@vkontakte/vkui/dist/vkui.css';
+
 
 import { SplashScreen } from './screens/SplashScreen';
 import { WelcomeScreen } from './screens/WelcomeScreen';

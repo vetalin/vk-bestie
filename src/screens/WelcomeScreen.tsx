@@ -1,5 +1,5 @@
 import { View, Panel, PanelHeader, Group, Div, Button, Title, Text, Card, Avatar } from '@vkontakte/vkui';
-import '@vkontakte/vkui/dist/vkui.css';
+
 import { UserInfo } from '../types';
 import './WelcomeScreen.css';
 
