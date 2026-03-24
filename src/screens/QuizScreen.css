@@ -1,0 +1,128 @@
+.QuizScreen {
+  background: #FAFAFA;
+  min-height: 100vh;
+}
+
+.QuizScreen .PanelHeader {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: white;
+}
+
+.quiz-content {
+  padding-top: 8px;
+}
+
+.progress-section {
+  padding: 16px 16px 8px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-text {
+  font-size: 13px;
+  color: #636E72;
+  font-weight: 500;
+}
+
+.category-badge {
+  font-size: 20px;
+}
+
+.quiz-progress {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background: #E0E0E0 !important;
+}
+
+.quiz-progress progress {
+  background: linear-gradient(90deg, #FF6B6B, #FF8E53) !important;
+  border-radius: 4px !important;
+}
+
+.question-section {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.friend-avatar-small {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ECDC4, #44A08D);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 32px;
+  overflow: hidden;
+}
+
+.friend-avatar-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.question-text {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #2D3436 !important;
+  line-height: 1.4 !important;
+}
+
+.answers-group {
+  padding: 0 16px;
+}
+
+.answer-div {
+  padding: 6px 0;
+}
+
+.answer-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border: 2px solid #E0E0E0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.answer-button:hover {
+  border-color: #FF6B6B;
+  background: #FFF5F5;
+  transform: scale(1.02);
+}
+
+.answer-button:active {
+  transform: scale(0.98);
+}
+
+.answer-letter {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.answer-text {
+  font-size: 15px;
+  color: #2D3436;
+  line-height: 1.4;
+}

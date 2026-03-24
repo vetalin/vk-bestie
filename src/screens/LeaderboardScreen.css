@@ -1,0 +1,96 @@
+.LeaderboardScreen {
+  background: #FAFAFA;
+  min-height: 100vh;
+}
+
+.LeaderboardScreen .PanelHeader {
+  background: linear-gradient(135deg, #4ECDC4, #44A08D);
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+}
+
+.empty-emoji {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.empty-desc {
+  color: #636E72;
+  margin: 8px 0 24px;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53) !important;
+  font-weight: 700 !important;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leaderboard-item.rank-1 {
+  background: linear-gradient(135deg, #FFF9E6, #FFF);
+  border: 2px solid #FFE66D;
+}
+
+.leaderboard-item.rank-2 {
+  background: linear-gradient(135deg, #F5F5F5, #FFF);
+  border: 2px solid #C0C0C0;
+}
+
+.leaderboard-item.rank-3 {
+  background: linear-gradient(135deg, #FFF0E6, #FFF);
+  border: 2px solid #CD7F32;
+}
+
+.leaderboard-rank {
+  font-size: 20px;
+  font-weight: 700;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.leaderboard-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.leaderboard-score {
+  color: #636E72;
+  font-size: 13px;
+}
+
+.leaderboard-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #E0E0E0;
+}
+
+.leaderboard-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+  transition: width 0.5s ease;
+}

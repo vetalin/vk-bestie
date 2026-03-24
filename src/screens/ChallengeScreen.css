@@ -1,0 +1,82 @@
+.ChallengeScreen {
+  background: #FAFAFA;
+  min-height: 100vh;
+}
+
+.ChallengeScreen .PanelHeader {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: white;
+}
+
+.challenge-intro {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.challenge-title {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #2D3436 !important;
+}
+
+.challenge-desc {
+  color: #636E72;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.input-card {
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+}
+
+.friend-input {
+  font-size: 16px !important;
+}
+
+.friend-input input {
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  border: 2px solid #E0E0E0 !important;
+}
+
+.friend-input input:focus {
+  border-color: #FF6B6B !important;
+}
+
+.start-quiz-btn {
+  width: 100%;
+  margin-top: 16px;
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53) !important;
+  font-weight: 700 !important;
+}
+
+.start-quiz-btn:disabled {
+  opacity: 0.5;
+}
+
+.tip-section {
+  padding: 0 16px;
+}
+
+.tip-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #F0FFF4;
+  border-radius: 16px;
+  border: 1px solid #C6F6D5;
+}
+
+.tip-emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tip-text {
+  color: #2D3436;
+  font-size: 14px;
+  line-height: 1.4;
+}
