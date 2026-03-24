@@ -13,7 +13,7 @@ export function WelcomeScreen({ user, onStart, onLeaderboard }: Props) {
   return (
     <View activePanel="welcome">
       <Panel id="welcome" className="WelcomeScreen">
-        <PanelHeader separator={false}>Кто твой Bestie?</PanelHeader>
+        <PanelHeader>Кто твой Bestie?</PanelHeader>
         
         <Group>
           <Div className="hero-section">
@@ -54,7 +54,7 @@ export function WelcomeScreen({ user, onStart, onLeaderboard }: Props) {
               <div className="feature-item">
                 <span className="feature-emoji">🎮</span>
                 <div>
-                  <Text weight="semibold">Проходи квизы</Text>
+                  <Text weight="2">Проходи квизы</Text>
                   <Text className="feature-desc">Отвечай на вопросы о друзьях</Text>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export function WelcomeScreen({ user, onStart, onLeaderboard }: Props) {
               <div className="feature-item">
                 <span className="feature-emoji">🤝</span>
                 <div>
-                  <Text weight="semibold">Зеркальный квиз</Text>
+                  <Text weight="2">Зеркальный квиз</Text>
                   <Text className="feature-desc">Пусть друг ответит о тебе</Text>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export function WelcomeScreen({ user, onStart, onLeaderboard }: Props) {
               <div className="feature-item">
                 <span className="feature-emoji">🏆</span>
                 <div>
-                  <Text weight="semibold">Рейтинг друзей</Text>
+                  <Text weight="2">Рейтинг друзей</Text>
                   <Text className="feature-desc">Узнай кто знает тебя лучше всех</Text>
                 </div>
               </div>

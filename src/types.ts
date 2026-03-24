@@ -1,3 +1,5 @@
+export type VKUser = UserInfo;
+
 export interface UserInfo {
   id: number;
   first_name: string;

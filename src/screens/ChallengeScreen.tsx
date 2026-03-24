@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Panel, PanelHeader, Group, Div, Button, Title, Text, Card, Avatar, FormLayout, FormLayoutGroup, Input } from '@vkontakte/vkui';
+import { View, Panel, PanelHeader, Group, Div, Button, Title, Text, Card, Input } from '@vkontakte/vkui';
 import { Friend } from '../App';
 import './ChallengeScreen.css';
 
@@ -10,7 +10,6 @@ interface Props {
 
 export function ChallengeScreen({ onSelectFriend, onBack }: Props) {
   const [friendName, setFriendName] = useState('');
-  const [isCustom, setIsCustom] = useState(false);
 
   const handleSubmit = () => {
     if (!friendName.trim()) return;
@@ -25,9 +24,7 @@ export function ChallengeScreen({ onSelectFriend, onBack }: Props) {
   return (
     <View activePanel="challenge">
       <Panel id="challenge" className="ChallengeScreen">
-        <PanelHeader separator={false}>
-          Выбери друга
-        </PanelHeader>
+        <PanelHeader>Выбери друга</PanelHeader>
 
         <Group>
           <Div>
@@ -51,16 +48,12 @@ export function ChallengeScreen({ onSelectFriend, onBack }: Props) {
         <Group>
           <Div>
             <Card className="input-card">
-              <FormLayout>
-                <FormLayoutGroup top="Имя друга">
-                  <Input
-                    value={friendName}
-                    onChange={(e) => setFriendName(e.target.value)}
-                    placeholder="Например: Антон"
-                    className="friend-input"
-                  />
-                </FormLayoutGroup>
-              </FormLayout>
+              <Input
+                value={friendName}
+                onChange={(e) => setFriendName(e.target.value)}
+                placeholder="Например: Антон"
+                className="friend-input"
+              />
               
               <Button
                 size="l"

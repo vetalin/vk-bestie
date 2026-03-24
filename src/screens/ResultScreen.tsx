@@ -29,14 +29,14 @@ export function ResultScreen({ friend, score, achievements, onShare, onChallenge
   return (
     <View activePanel="result">
       <Panel id="result" className="ResultScreen">
-        <PanelHeader separator={false}>Результат</PanelHeader>
+        <PanelHeader>Результат</PanelHeader>
 
         <Group className="result-hero">
           <Div className="confetti-container">
             <span className="confetti-emoji">🎉</span>
             <span className="confetti-emoji">🎊</span>
             <span className="confetti-emoji">✨</span>
-          </div>
+          </Div>
           
           <div className="score-circle">
             <span className="score-emoji">{getScoreEmoji(score)}</span>
@@ -49,7 +49,7 @@ export function ResultScreen({ friend, score, achievements, onShare, onChallenge
           
           <div className="friend-result-info">
             <Avatar size={56} src={friend.avatar} />
-            <Text weight="semibold" className="friend-result-name">
+            <Text weight="2" className="friend-result-name">
               {friend.name}
             </Text>
           </div>

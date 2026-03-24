@@ -8,7 +8,7 @@ export function SplashScreen() {
         <div className="splash-content">
           <div className="splash-logo">👯</div>
           <div className="splash-title">Кто твой Bestie?</div>
-          <ScreenSpinner size="medium" />
+          <ScreenSpinner />
         </div>
       </Panel>
     </View>

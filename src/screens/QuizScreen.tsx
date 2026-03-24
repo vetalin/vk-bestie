@@ -23,9 +23,7 @@ export function QuizScreen({ friend, question, questionIndex, totalQuestions, on
   return (
     <View activePanel="quiz">
       <Panel id="quiz" className="QuizScreen">
-        <PanelHeader separator={false}>
-          Квиз о {friend.name}
-        </PanelHeader>
+        <PanelHeader>Квиз о {friend.name}</PanelHeader>
 
         <Group className="quiz-content">
           <Div className="progress-section">

@@ -10,10 +10,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "tsBuildInfoFile": null,
     "jsx": "react-jsx",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./src/*"]

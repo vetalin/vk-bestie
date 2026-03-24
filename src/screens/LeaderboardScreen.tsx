@@ -14,9 +14,7 @@ export function LeaderboardScreen({ friends, onBack, onChallenge }: Props) {
   return (
     <View activePanel="leaderboard">
       <Panel id="leaderboard" className="LeaderboardScreen">
-        <PanelHeader left={undefined} separator={false}>
-          Мой рейтинг друзей
-        </PanelHeader>
+        <PanelHeader>Мой рейтинг друзей</PanelHeader>
 
         <Group>
           <Div>
@@ -49,7 +47,7 @@ export function LeaderboardScreen({ friends, onBack, onChallenge }: Props) {
                   </div>
                   <Avatar size={48} src={friend.avatar} />
                   <div className="leaderboard-info">
-                    <Text weight="semibold">{friend.name}</Text>
+                    <Text weight="2">{friend.name}</Text>
                     <Text className="leaderboard-score">{friend.score}% совпадение</Text>
                   </div>
                   <div className="leaderboard-bar">
