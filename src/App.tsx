@@ -32,7 +32,7 @@ export interface QuizState {
 
 const STORAGE_KEY = 'bestie_quiz_state';
 
-export function App() {
+export default function App() {
   const [screen, setScreen] = useState<Screen>('splash');
   const [activeModal, setActiveModal] = useState<Modal>(null);
   const [user, setUser] = useState<UserInfo | null>(null);
